@@ -5,8 +5,10 @@ apis:
   - aid: microsoft-azure-cosmos-db:azure-cosmos-db-api
     name: Azure Cosmos DB API
     tags:
-      - NoSQL\n      - Database\n      - Global Distribution\n      - 
-        Multi-Model
+      - NoSQL
+      - Database
+      - Global Distribution
+      - Multi-Model
     image: 
       https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://{account}.documents.azure.com/
@@ -32,9 +34,13 @@ common:
     url: https://privacy.microsoft.com/en-us/privacystatement
   - type: Support
     url: https://support.microsoft.com/
-modified: '2026-03-16'
+modified: '2026-04-28'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 description: >-
-  Lists different REST API versions for Azure Cosmos DB.
+  Azure Cosmos DB is a globally distributed, multi-model database service offering
+  guaranteed low latency, elastic scalability, and tunable consistency. This collection
+  catalogs the REST APIs for data plane operations across NoSQL, MongoDB, Cassandra,
+  Gremlin, and Table models alongside resource provider APIs for account and throughput
+  management.

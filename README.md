@@ -1,16 +1,16 @@
 # Azure Cosmos DB (microsoft-azure-cosmos-db)
-Azure Cosmos DB is a globally distributed, multi-model database service with guaranteed low latency, elastic scalability, and multiple consistency models.
+Azure Cosmos DB is a globally distributed, multi-model database service offering guaranteed low latency, elastic scalability, and tunable consistency. This collection catalogs the REST APIs for data plane operations across NoSQL, MongoDB, Cassandra, Gremlin, and Table models alongside resource provider APIs for account and throughput management.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/microsoft-azure-cosmos-db/refs/heads/main/apis.yml)
 
 ## Tags:
 
- - NoSQL, Database, Global Distribution
+ - NoSQL, Database, Global Distribution, Multi-Model
 
 ## Timestamps
 
 - **Created:** 2026-03-13
-- **Modified:** 2026-03-13
+- **Modified:** 2026-04-28
 
 ## APIs
 
