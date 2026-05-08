@@ -1,6 +1,5 @@
 aid: microsoft-azure-cosmos-db
-url: 
-  https://raw.githubusercontent.com/api-evangelist/microsoft-azure-cosmos-db/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-cosmos-db/refs/heads/main/apis.yml
 apis:
   - aid: microsoft-azure-cosmos-db:azure-cosmos-db-api
     name: Azure Cosmos DB API
@@ -9,11 +8,12 @@ apis:
       - Database
       - Global Distribution
       - Multi-Model
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://{account}.documents.azure.com/
     humanURL: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
     properties:
+      - url: openapi/microsoft-azure-cosmos-db-openapi.yml
+        type: OpenAPI
       - url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
         type: Documentation
     description: >-
