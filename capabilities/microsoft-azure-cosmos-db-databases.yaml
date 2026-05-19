@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure Cosmos DB REST API — Databases
+  description: 'Azure Cosmos DB REST API — Databases. 4 operations. Lead operation: Cosmos DB List databases. Self-contained
+    Naftiko capability covering one Microsoft Azure Cosmos Db business surface.'
+  tags:
+  - Microsoft Azure Cosmos Db
+  - Databases
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_COSMOS_DB_API_KEY: MICROSOFT_AZURE_COSMOS_DB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-azure-cosmos-db-databases
+    baseUri: https://{account}.documents.azure.com
+    description: Azure Cosmos DB REST API — Databases business capability. Self-contained, no shared references.
+    resources:
+    - name: dbs
+      path: /dbs
+      operations:
+      - name: listdatabases
+        method: GET
+        description: Cosmos DB List databases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdatabase
+        method: POST
+        description: Cosmos DB Create database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: dbs-databaseId
+      path: /dbs/{databaseId}
+      operations:
+      - name: getdatabase
+        method: GET
+        description: Cosmos DB Get database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedatabase
+        method: DELETE
+        description: Cosmos DB Delete database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MICROSOFT_AZURE_COSMOS_DB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: microsoft-azure-cosmos-db-databases-rest
+    port: 8080
+    description: REST adapter for Azure Cosmos DB REST API — Databases. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/dbs
+      name: dbs
+      description: REST surface for dbs.
+      operations:
+      - method: GET
+        name: listdatabases
+        description: Cosmos DB List databases
+        call: microsoft-azure-cosmos-db-databases.listdatabases
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdatabase
+        description: Cosmos DB Create database
+        call: microsoft-azure-cosmos-db-databases.createdatabase
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dbs/{databaseid}
+      name: dbs-databaseid
+      description: REST surface for dbs-databaseId.
+      operations:
+      - method: GET
+        name: getdatabase
+        description: Cosmos DB Get database
+        call: microsoft-azure-cosmos-db-databases.getdatabase
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedatabase
+        description: Cosmos DB Delete database
+        call: microsoft-azure-cosmos-db-databases.deletedatabase
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-azure-cosmos-db-databases-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure Cosmos DB REST API — Databases. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: cosmos-db-list-databases
+      description: Cosmos DB List databases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-azure-cosmos-db-databases.listdatabases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cosmos-db-create-database
+      description: Cosmos DB Create database
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-azure-cosmos-db-databases.createdatabase
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cosmos-db-get-database
+      description: Cosmos DB Get database
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-azure-cosmos-db-databases.getdatabase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cosmos-db-delete-database
+      description: Cosmos DB Delete database
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-azure-cosmos-db-databases.deletedatabase
+      outputParameters:
+      - type: object
+        mapping: $.
