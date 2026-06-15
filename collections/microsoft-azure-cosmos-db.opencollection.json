@@ -1,0 +1,282 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Cosmos DB REST API",
+    "version": "2018-12-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cosmos DB List databases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.documents.azure.com/dbs"
+          },
+          "docs": "Lists all databases in the account."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Create database",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.documents.azure.com/dbs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new database."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Get database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a database."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Delete database",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a database."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cosmos DB List collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all collections in a database."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Create collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cosmos DB List documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls/:collectionId/docs",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists documents in a collection."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Create document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls/:collectionId/docs",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new document."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Get document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls/:collectionId/docs/:documentId",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a document."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Replace document",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls/:collectionId/docs/:documentId",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces an existing document."
+        },
+        {
+          "info": {
+            "name": "Cosmos DB Delete document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account}.documents.azure.com/dbs/:databaseId/colls/:collectionId/docs/:documentId",
+            "params": [
+              {
+                "name": "databaseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
