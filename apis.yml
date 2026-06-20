@@ -8,7 +8,7 @@ apis:
       - Database
       - Global Distribution
       - Multi-Model
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://{account}.documents.azure.com/
     humanURL: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
     properties:
