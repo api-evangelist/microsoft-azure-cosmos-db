@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-azure-cosmos-db-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: masterKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Master key or resource token in Authorization header
+  sources:
+  - openapi/microsoft-azure-cosmos-db-openapi.yml

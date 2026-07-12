@@ -21,6 +21,10 @@ apis:
       procedures across multiple API models including NoSQL, MongoDB, Cassandra, Gremlin, and Table. The resource
       provider API enables account management, throughput configuration, and global distribution settings.
 common:
+  - type: DomainSecurity
+    url: security/microsoft-azure-cosmos-db-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-azure-cosmos-db-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/AzureCosmosDB
   - type: LinkedIn
@@ -45,3 +49,5 @@ description: >-
   Azure Cosmos DB is a globally distributed, multi-model database service offering guaranteed low latency, elastic
   scalability, and tunable consistency. This collection catalogs the REST APIs for data plane operations across NoSQL,
   MongoDB, Cassandra, Gremlin, and Table models alongside resource provider APIs for account and throughput management.
+  - url: https://azure.microsoft.com/en-us/blog/azure-cosmos-db-a-competitive-advantage-for-healthcare-isvs/
+    type: Blog
