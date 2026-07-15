@@ -21,6 +21,8 @@ apis:
       procedures across multiple API models including NoSQL, MongoDB, Cassandra, Gremlin, and Table. The resource
       provider API enables account management, throughput configuration, and global distribution settings.
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-azure-cosmos-db-agentic-access.yml
   - type: DomainSecurity
     url: security/microsoft-azure-cosmos-db-domain-security.yml
   - type: Authentication
