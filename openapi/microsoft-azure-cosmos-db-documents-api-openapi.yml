@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Azure Cosmos DB REST Collections Documents API
+  description: The Azure Cosmos DB REST API provides data plane operations for documents, collections, databases, users, and stored procedures within a Cosmos DB account using the SQL (Core) API. Authentication uses master keys or Azure AD tokens via the Authorization header.
+  version: '2018-12-31'
+servers:
+- url: https://{account}.documents.azure.com
+  variables:
+    account:
+      default: myaccount
+      description: Cosmos DB account name
+security:
+- masterKey: []
+tags:
+- name: Documents
+  description: Documents operations
+paths:
+  /dbs/{databaseId}/colls/{collectionId}/docs:
+    parameters:
+    - name: databaseId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: collectionId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listDocuments
+      summary: Cosmos DB List documents
+      description: Lists documents in a collection.
+      tags:
+      - Documents
+      responses:
+        '200':
+          description: List of documents
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createDocument
+      summary: Cosmos DB Create document
+      description: Creates a new document.
+      tags:
+      - Documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Document created
+          content:
+            application/json:
+              schema:
+                type: object
+  /dbs/{databaseId}/colls/{collectionId}/docs/{documentId}:
+    parameters:
+    - name: databaseId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: collectionId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: documentId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getDocument
+      summary: Cosmos DB Get document
+      description: Retrieves a document.
+      tags:
+      - Documents
+      responses:
+        '200':
+          description: Document
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      operationId: replaceDocument
+      summary: Cosmos DB Replace document
+      description: Replaces an existing document.
+      tags:
+      - Documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Document replaced
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      operationId: deleteDocument
+      summary: Cosmos DB Delete document
+      description: Deletes a document.
+      tags:
+      - Documents
+      responses:
+        '204':
+          description: Document deleted
+components:
+  securitySchemes:
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Master key or resource token in Authorization header
+externalDocs:
+  description: Azure Cosmos DB REST API Documentation
+  url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+x-generated-from: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+x-generated-by: claude-crawl-2026-05-08

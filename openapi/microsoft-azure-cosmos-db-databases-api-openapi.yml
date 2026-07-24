@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: Azure Cosmos DB REST Collections Databases API
+  description: The Azure Cosmos DB REST API provides data plane operations for documents, collections, databases, users, and stored procedures within a Cosmos DB account using the SQL (Core) API. Authentication uses master keys or Azure AD tokens via the Authorization header.
+  version: '2018-12-31'
+servers:
+- url: https://{account}.documents.azure.com
+  variables:
+    account:
+      default: myaccount
+      description: Cosmos DB account name
+security:
+- masterKey: []
+tags:
+- name: Databases
+  description: Databases operations
+paths:
+  /dbs:
+    get:
+      operationId: listDatabases
+      summary: Cosmos DB List databases
+      description: Lists all databases in the account.
+      tags:
+      - Databases
+      responses:
+        '200':
+          description: List of databases
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseList'
+    post:
+      operationId: createDatabase
+      summary: Cosmos DB Create database
+      description: Creates a new database.
+      tags:
+      - Databases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+      responses:
+        '201':
+          description: Database created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Database'
+  /dbs/{databaseId}:
+    parameters:
+    - name: databaseId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getDatabase
+      summary: Cosmos DB Get database
+      description: Retrieves a database.
+      tags:
+      - Databases
+      responses:
+        '200':
+          description: Database
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Database'
+    delete:
+      operationId: deleteDatabase
+      summary: Cosmos DB Delete database
+      description: Deletes a database.
+      tags:
+      - Databases
+      responses:
+        '204':
+          description: Database deleted
+components:
+  schemas:
+    Database:
+      type: object
+      properties:
+        id:
+          type: string
+        _rid:
+          type: string
+        _self:
+          type: string
+        _etag:
+          type: string
+        _ts:
+          type: integer
+        _colls:
+          type: string
+        _users:
+          type: string
+    DatabaseList:
+      type: object
+      properties:
+        _rid:
+          type: string
+        Databases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Database'
+        _count:
+          type: integer
+  securitySchemes:
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Master key or resource token in Authorization header
+externalDocs:
+  description: Azure Cosmos DB REST API Documentation
+  url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+x-generated-from: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+x-generated-by: claude-crawl-2026-05-08

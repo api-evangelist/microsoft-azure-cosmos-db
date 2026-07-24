@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: Azure Cosmos DB REST Collections API
+  description: The Azure Cosmos DB REST API provides data plane operations for documents, collections, databases, users, and stored procedures within a Cosmos DB account using the SQL (Core) API. Authentication uses master keys or Azure AD tokens via the Authorization header.
+  version: '2018-12-31'
+servers:
+- url: https://{account}.documents.azure.com
+  variables:
+    account:
+      default: myaccount
+      description: Cosmos DB account name
+security:
+- masterKey: []
+tags:
+- name: Collections
+  description: Collections operations
+paths:
+  /dbs/{databaseId}/colls:
+    parameters:
+    - name: databaseId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listCollections
+      summary: Cosmos DB List collections
+      description: Lists all collections in a database.
+      tags:
+      - Collections
+      responses:
+        '200':
+          description: List of collections
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createCollection
+      summary: Cosmos DB Create collection
+      description: Creates a new collection.
+      tags:
+      - Collections
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Collection created
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Master key or resource token in Authorization header
+externalDocs:
+  description: Azure Cosmos DB REST API Documentation
+  url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+x-generated-from: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+x-generated-by: claude-crawl-2026-05-08
