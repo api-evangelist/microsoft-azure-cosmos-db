@@ -1,25 +1,56 @@
 aid: microsoft-azure-cosmos-db
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-azure-cosmos-db.png
 url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-cosmos-db/refs/heads/main/apis.yml
 apis:
-  - aid: microsoft-azure-cosmos-db:azure-cosmos-db-api
-    name: Azure Cosmos DB API
-    tags:
-      - NoSQL
-      - Database
-      - Global Distribution
-      - Multi-Model
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://{account}.documents.azure.com/
-    humanURL: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
-    properties:
-      - url: openapi/microsoft-azure-cosmos-db-openapi.yml
-        type: OpenAPI
-      - url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
-        type: Documentation
-    description: >-
-      The Azure Cosmos DB REST API provides data plane operations for documents, collections, databases, and stored
-      procedures across multiple API models including NoSQL, MongoDB, Cassandra, Gremlin, and Table. The resource
-      provider API enables account management, throughput configuration, and global distribution settings.
+- aid: microsoft-azure-cosmos-db:microsoft-azure-cosmos-db-collections-api
+  name: microsoft-azure-cosmos-db Collections API
+  description: Collections operations
+  humanURL: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+  baseURL: https://{account}.documents.azure.com/
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-cosmos-db-collections-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+- aid: microsoft-azure-cosmos-db:microsoft-azure-cosmos-db-databases-api
+  name: microsoft-azure-cosmos-db Databases API
+  description: Databases operations
+  humanURL: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+  baseURL: https://{account}.documents.azure.com/
+  tags:
+  - Databases
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-cosmos-db-databases-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+- aid: microsoft-azure-cosmos-db:microsoft-azure-cosmos-db-documents-api
+  name: microsoft-azure-cosmos-db Documents API
+  description: Documents operations
+  humanURL: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
+  baseURL: https://{account}.documents.azure.com/
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-cosmos-db-documents-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-azure-cosmos-db-agentic-access.yml
