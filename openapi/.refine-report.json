@@ -1,0 +1,18 @@
+{
+  "provider": "microsoft-azure-cosmos-db",
+  "sources": [
+    "microsoft-azure-cosmos-db-collections-api-openapi.yml",
+    "microsoft-azure-cosmos-db-databases-api-openapi.yml",
+    "microsoft-azure-cosmos-db-documents-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-azure-cosmos-db-collections-api-openapi.yml",
+    "microsoft-azure-cosmos-db-databases-api-openapi.yml",
+    "microsoft-azure-cosmos-db-documents-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
