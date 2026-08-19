@@ -1,0 +1,469 @@
+{
+  "item": [
+    {
+      "id": "38492f62-d852-43e9-ba94-77c120e8fba4",
+      "name": "Databases",
+      "description": {
+        "content": "Databases operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92226abd-76a3-439f-93c8-b566dba93ce1",
+          "name": "Cosmos DB List databases",
+          "request": {
+            "name": "Cosmos DB List databases",
+            "description": {
+              "content": "Lists all databases in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dbs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Cosmos DB account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cee46793-b325-47b1-b142-ba97c2a104d6",
+              "name": "List of databases",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dbs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Cosmos DB account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_rid\": \"string\",\n  \"Databases\": [\n    {\n      \"id\": \"string\",\n      \"_rid\": \"string\",\n      \"_self\": \"string\",\n      \"_etag\": \"string\",\n      \"_ts\": 7108,\n      \"_colls\": \"string\",\n      \"_users\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"_rid\": \"string\",\n      \"_self\": \"string\",\n      \"_etag\": \"string\",\n      \"_ts\": 5924,\n      \"_colls\": \"string\",\n      \"_users\": \"string\"\n    }\n  ],\n  \"_count\": 2712\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d561285-391e-4c39-80ac-e8f08cc85557",
+          "name": "Cosmos DB Create database",
+          "request": {
+            "name": "Cosmos DB Create database",
+            "description": {
+              "content": "Creates a new database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dbs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Cosmos DB account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9733f441-ea6f-40ea-ad03-83c0d331a2c1",
+              "name": "Database created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dbs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Cosmos DB account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"_rid\": \"string\",\n  \"_self\": \"string\",\n  \"_etag\": \"string\",\n  \"_ts\": 4454,\n  \"_colls\": \"string\",\n  \"_users\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3f15e3f-8812-44b6-9520-d84d5de118f9",
+          "name": "Cosmos DB Get database",
+          "request": {
+            "name": "Cosmos DB Get database",
+            "description": {
+              "content": "Retrieves a database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dbs",
+                ":databaseId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "databaseId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Cosmos DB account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb4dbac2-956e-4958-8da3-5383a12dbbcb",
+              "name": "Database",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dbs",
+                    ":databaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "databaseId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Cosmos DB account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"_rid\": \"string\",\n  \"_self\": \"string\",\n  \"_etag\": \"string\",\n  \"_ts\": 4454,\n  \"_colls\": \"string\",\n  \"_users\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d25956a-436b-4fd0-8246-663f5d224b64",
+          "name": "Cosmos DB Delete database",
+          "request": {
+            "name": "Cosmos DB Delete database",
+            "description": {
+              "content": "Deletes a database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dbs",
+                ":databaseId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "databaseId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Cosmos DB account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "059cda9a-09f8-49b6-bddc-89706b59e64c",
+              "name": "Database deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dbs",
+                    ":databaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "databaseId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Cosmos DB account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Cosmos DB account name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myaccount",
+      "key": "account"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account}}.documents.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "982c53ae-f7fa-481f-b57c-b009578479a9",
+    "name": "Azure Cosmos DB REST Collections Databases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Azure Cosmos DB REST API provides data plane operations for documents, collections, databases, users, and stored procedures within a Cosmos DB account using the SQL (Core) API. Authentication uses master keys or Azure AD tokens via the Authorization header.",
+      "type": "text/plain"
+    }
+  }
+}
