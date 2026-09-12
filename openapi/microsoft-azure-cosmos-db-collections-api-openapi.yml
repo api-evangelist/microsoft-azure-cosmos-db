@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Azure Cosmos DB REST Collections API
   description: The Azure Cosmos DB REST API provides data plane operations for documents, collections, databases, users, and stored procedures within a Cosmos DB account using the SQL (Core) API. Authentication uses master keys or Azure AD tokens via the Authorization header.

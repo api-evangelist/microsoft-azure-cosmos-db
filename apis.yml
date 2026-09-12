@@ -69,6 +69,8 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/cosmos-db/
 common:
+  - type: Website
+    url: https://www.microsoft.com/
   - type: AgenticAccess
     url: agentic-access/microsoft-azure-cosmos-db-agentic-access.yml
   - type: DomainSecurity
@@ -101,3 +103,5 @@ description: >-
   MongoDB, Cassandra, Gremlin, and Table models alongside resource provider APIs for account and throughput management.
   - url: https://azure.microsoft.com/en-us/blog/azure-cosmos-db-a-competitive-advantage-for-healthcare-isvs/
     type: Blog
+x-parent: microsoft-azure
+x-relationship: product
